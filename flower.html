@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SADIE FLOWERS // Artisan Botanical House</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DESIGN SYSTEM RESET & VARIABLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        :root {
+            --bg-cream: #FDFBF7;           
+            --text-sage: #2C4A3E;          
+            --accent-petal: #E3C2BA;       
+            --subtle-border: rgba(44, 74, 62, 0.12);
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Work Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-sage);
+            font-family: var(--font-sans);
+            font-weight: 300;
+            padding: 24px 20px;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY ECOSYSTEM --- */
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            line-height: 1.15;
+            color: var(--text-sage);
+        }
+
+        p {
+            font-size: 0.82rem;
+            line-height: 1.7;
+            opacity: 0.85;
+            color: var(--text-sage);
+        }
+
+        .label-stamp {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--text-sage);
+            opacity: 0.6;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* --- THE CLEAN LONG-SCROLL SCAFFOLD --- */
+        .page-wrapper {
+            width: 100%;
+            max-width: 420px; 
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 50px; 
+        }
+
+        .img-container {
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(44, 74, 62, 0.05);
+            border-radius: 8px; 
+            aspect-ratio: 4 / 5;
+        }
+
+        /* LOCAL SUBSCRIPTION PATH LINKED HERE */
+        .img-subscription {
+            width: 100%;
+            height: 180px;
+            background-image: url('images/subscription-wrap.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .thin-divider {
+            width: 100%;
+            border-bottom: 1px solid var(--subtle-border);
+            padding-top: 10px;
+        }
+
+        /* --- SECTION 1: HEADER & HERO --- */
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--subtle-border);
+        }
+
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-cart {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-intro {
+            text-align: center;
+            padding: 30px 10px 10px 10px;
+        }
+
+        .hero-intro h1 {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+        }
+
+        .hero-intro h1 i {
+            font-family: var(--font-serif);
+            font-style: italic;
+        }
+
+        /* --- SECTION 2: PRODUCT FLOW --- */
+        .product-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-top: 4px;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+        }
+
+        .product-price {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+
+        /* --- SECTION 3: SUBSCRIPTION CLUB --- */
+        .perks-panel {
+            background-color: rgba(44, 74, 62, 0.03);
+            border: 1px solid var(--subtle-border);
+            border-radius: 12px;
+            padding: 30px 24px;
+            text-align: center;
+        }
+
+        .perks-panel h2 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        /* --- SECTION 4: THE BLOOM BUILDER GRID --- */
+        .builder-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .stem-item {
+            border: 1px solid var(--subtle-border);
+            padding: 16px;
+            border-radius: 6px;
+            text-align: center;
+            background: #FFF;
+        }
+
+        .stem-name {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .stem-price {
+            font-size: 0.7rem;
+            opacity: 0.6;
+        }
+
+        /* --- SECTION 5: LIVE WORKSHOPS --- */
+        .workshop-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px dashed var(--subtle-border);
+        }
+
+        .workshop-date {
+            font-size: 0.75rem;
+            font-weight: 500;
+            opacity: 0.6;
+            min-width: 60px;
+        }
+
+        .workshop-title {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            flex-grow: 1;
+            padding: 0 15px;
+        }
+
+        /* --- SECTION 6: INTAKE HOOK --- */
+        .order-terminal {
+            background-color: var(--text-sage);
+            color: var(--bg-cream);
+            padding: 35px 24px;
+            border-radius: 12px;
+        }
+
+        .order-terminal h2 {
+            color: var(--bg-cream);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .order-terminal p {
+            color: var(--bg-cream);
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+
+        .input-node {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--bg-cream);
+            padding: 14px;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            margin-top: 12px;
+            outline: none;
+            border-radius: 6px;
+        }
+
+        .input-node:focus {
+            border-color: var(--accent-petal);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--bg-cream);
+            color: var(--text-sage);
+            border: none;
+            padding: 16px;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 16px;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        /* --- SECTION 7: LUXURY CLOSING FOOTER --- */
+        .brand-footer {
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 40px;
+            border-top: 1px solid var(--subtle-border);
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-details {
+            font-size: 0.7rem;
+            line-height: 1.8;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        
+        <div class="nav-header">
+            <div class="nav-logo">Sadie Flowers</div>
+            <div class="nav-cart">Bag [0]</div>
+        </div>
+
+        <div class="hero-intro">
+            <span class="label-stamp">Est. 2026</span>
+            <h1>Fresh stems, arranged with <i>thought</i>.</h1>
+            <p>We craft elegant, natural botanical arrangements for daily spaces, quiet moments, and shared celebrations. Sourced carefully, designed loosely.</p>
+        </div>
+
+        <div class="img-container" style="background-image: url('images/hero-greenhouse.jpg'); aspect-ratio: 16/10;"></div>
+
+        <div class="product-stack">
+            <div class="thin-divider label-stamp">01 // Signature Bouquets</div>
+            
+            <div class="product-card">
+                <div class="img-container" style="background-image: url('images/bouquet-cottage.jpg');"></div>
+                <div class="product-meta">
+                    <h3 class="product-title">The Cottage Hearth</h3>
+                    <span class="product-price">$78.00</span>
+                </div>
+                <p>A loose, rustic mix of peach garden roses, wild white chamomile, and delicate field grasses.</p>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container" style="background-image: url('images/bouquet-cream.jpg');"></div>
+                <div class="product-meta">
+                    <h3 class="product-title">Classic English Cream</h3>
+                    <span class="product-price">$92.00</span>
+                </div>
+                <p>An elegant, monochromatic arrangement of ivory hydrangeas, white tulips, and fresh silver dollar eucalyptus.</p>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container" style="background-image: url('images/bouquet-blush.jpg');"></div>
+                <div class="product-meta">
+                    <h3 class="product-title">The Blush Meadow</h3>
+                    <span class="product-price">$85.00</span>
+                </div>
+                <p>Soft pink ranunculus paired beautifully with lavender stems and fragrant rosemary sprigs.</p>
+            </div>
+        </div>
+
+        <div class="perks-panel">
+            <span class="label-stamp">02 // Floral Subscriptions</span>
+            <h2>Stems For The Table</h2>
+            <p style="margin-bottom: 20px;">Receive a freshly gathered, loose paper wrap of seasonal market flowers delivered straight to your doorstep weekly or monthly.</p>
+            <div class="img-subscription"></div>
+        </div>
+
+        <div>
+            <div class="thin-divider label-stamp">03 // Custom Stem Selection</div>
+            <h2 style="font-size: 1.8rem; margin-bottom: 8px;">Build Your Own Wrap</h2>
+            <p style="margin-bottom: 15px;">Select single variety loose flowers to build a simple bouquet customized entirely by you.</p>
+            
+            <div class="builder-grid">
+                <div class="stem-item">
+                    <div class="stem-name">Garden Rose</div>
+                    <div class="stem-price">$6.50 / stem</div>
+                </div>
+                <div class="stem-item">
+                    <div class="stem-name">French Tulip</div>
+                    <div class="stem-price">$4.50 / stem</div>
+                </div>
+                <div class="stem-item">
+                    <div class="stem-name">Sweet Pea</div>
+                    <div class="stem-price">$3.80 / stem</div>
+                </div>
+                <div class="stem-item">
+                    <div class="stem-name">Eucalyptus</div>
+                    <div class="stem-price">$3.00 / branch</div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="thin-divider label-stamp">04 // In The Studio</div>
+            <h2 style="font-size: 1.8rem; margin-bottom: 15px;">Floral Design Workshops</h2>
+            
+            <div class="workshop-row">
+                <div class="workshop-date">June 12</div>
+                <div class="workshop-title">Vase Arrangement Basics</div>
+                <div class="product-price">$120</div>
+            </div>
+            <div class="workshop-row">
+                <div class="workshop-date">June 28</div>
+                <div class="workshop-title">Hand-Tied Bridal Bouquets</div>
+                <div class="product-price">$145</div>
+            </div>
+            <div class="workshop-row">
+                <div class="workshop-date">July 05</div>
+                <div class="workshop-title">Working with Dried Botanicals</div>
+                <div class="product-price">$110</div>
+            </div>
+        </div>
+
+        <div class="order-terminal">
+            <span class="label-stamp" style="color: var(--accent-petal);">05 // Direct Concierge</span>
+            <h2>Send A Delivery</h2>
+            <p>Write your details to commission a local delivery or arrange custom event flowers.</p>
+            
+            <form onsubmit="event.preventDefault(); alert('Sadie Flowers has logged your request.');">
+                <input type="text" placeholder="Bouquet Style (Cottage, Cream, Custom Wrap...)" class="input-node" required>
+                <input type="text" placeholder="Recipient Delivery Address" class="input-node" required>
+                <input type="text" placeholder="Your Name & Contact Number" class="input-node" required>
+                <button type="submit" class="submit-btn">Send Botanical Request</button>
+            </form>
+        </div>
+
+        <div class="brand-footer">
+            <div class="footer-logo">Sadie Flowers</div>
+            <div class="footer-details">
+                108 Greenhouse Lane, Botanical District<br>
+                Open Tuesday — Sunday // 09:00 - 18:00<br>
+                Designed and Developed by Heist Labs Studio ©2026
+            </div>
+            <div class="footer-action-links" style="margin-top: 20px; font-size: 0.7rem; letter-spacing: 1px; font-weight: 500;">
+                <span style="margin: 0 10px; text-decoration: underline;">SHOP</span>
+                <span style="margin: 0 10px; text-decoration: underline;">ABOUT</span>
+                <span style="margin: 0 10px; text-decoration: underline;">INSTAGRAM</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
